@@ -1,0 +1,740 @@
+1. WAP to implement arithmetic operation in c++
+
+#include <iostream>
+using namespace std;
+
+void arithmetic(float num_1, float num_2)
+{
+    int operation;
+    cout<<"What Arithmetic Operation do you want to perform:\n";
+    cout<<"Press 1 for Addition \n" ;
+    cout<<"Press 2 for Subtraction\n";
+    cout<<"Press 3 for Multiplication\n";
+    cout<<"Press 4 for Division\n"; cin>>operation;
+    
+    switch (operation)
+    
+        {
+        case 1:
+        cout<<"The Addition result is: "<<num_1+num_2;
+        break;
+    
+        case 2:
+        cout<<"The Subtraction result is: "<<num_1-num_2;
+        break;
+    
+        case 3:
+        cout<<"The Multiplication result is: "<<num_1*num_2;
+        break;
+    
+        case 4:
+        cout<<"The Division result is: "<<num_1/num_2;
+        break;
+        }
+}
+
+int main() {
+    
+    float num_1, num_2;
+    cout<<"Now Enter Two Numbers\n"; cin>>num_1>>num_2;
+    
+    // call the function
+    arithmetic(num_1, num_2);
+
+    return 0;
+}
+Output
+
+Now Enter Two Numbers
+20 40
+What Arithmetic Operation do you want to perform:
+Press 1 for Addition 
+Press 2 for Subtraction
+Press 3 for Multiplication
+Press 4 for Division
+1
+The Addition result is: 60
+
+
+
+2. WAP to implement to find the result of n students in the terms of CGPA and percntage.
+
+#include<bits/stdc++.h>
+using namespace std;
+ 
+double CgpaCalc(double marks[], int n)
+{
+    // Variable to store the grades in
+    // every subject
+    double grade[n];
+ 
+    // Variables to store CGPA and the
+    // sum of all the grades
+    double cgpa, sum = 0;
+ 
+    // Computing the grades
+    for(int i = 0; i < n; i++)
+    {
+       grade[i] = (marks[i] / 10);
+    }
+ 
+    // Computing the sum of grades
+    for(int i = 0; i < n; i++)
+    {
+       sum += grade[i];
+    }
+ 
+    // Computing the CGPA
+    cgpa = sum / n;
+ 
+    return cgpa;
+}
+ 
+// Driver code
+int main()
+{
+    int n = 5;
+    double marks[] = { 90, 80, 70, 80, 90 };
+ 
+    double cgpa = CgpaCalc(marks, n);
+         
+    cout << "CGPA = ";
+    printf("%.1f\n", cgpa);
+    cout << "CGPA Percentage = ";
+    printf("%.2f", cgpa * 9.5);
+}
+ 
+Output: 
+CGPA = 8.2
+CGPA Percentage = 77.90
+
+
+
+
+3. WAP to implement a program to find the value of given any equation.
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+
+    float a, b, c, x1, x2, discriminant, realPart, imaginaryPart;
+    cout << "Enter coefficients a, b and c: ";
+    cin >> a >> b >> c;
+    discriminant = b*b - 4*a*c;
+    
+    if (discriminant > 0) {
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        x2 = (-b - sqrt(discriminant)) / (2*a);
+        cout << "Roots are real and different." << endl;
+        cout << "x1 = " << x1 << endl;
+        cout << "x2 = " << x2 << endl;
+    }
+    
+    else if (discriminant == 0) {
+        cout << "Roots are real and same." << endl;
+        x1 = -b/(2*a);
+        cout << "x1 = x2 =" << x1 << endl;
+    }
+
+    else {
+        realPart = -b/(2*a);
+        imaginaryPart =sqrt(-discriminant)/(2*a);
+        cout << "Roots are complex and different."  << endl;
+        cout << "x1 = " << realPart << "+" << imaginaryPart << "i" << endl;
+        cout << "x2 = " << realPart << "-" << imaginaryPart << "i" << endl;
+    }
+
+    return 0;
+}
+Output
+
+Enter coefficients a, b and c: 4
+5
+1
+Roots are real and different.
+x1 = -0.25
+x2 = -1
+
+
+
+4. WAP to implement operator overloading.
+
+
+// Overload ++ when used as prefix and postfix
+
+#include <iostream>
+using namespace std;
+
+class Count {
+   private:
+    int value;
+
+   public:
+
+    // Constructor to initialize count to 5
+    Count() : value(5) {}
+
+
+    // Overload ++ when used as prefix
+    void operator ++ () {
+        ++value;
+    }
+
+
+    // Overload ++ when used as postfix
+    void operator ++ (int) {
+        value++;
+    }
+
+    void display() {
+        cout << "Count: " << value << endl;
+    }
+};
+
+int main() {
+    Count count1;
+
+    // Call the "void operator ++ (int)" function
+    count1++;
+    count1.display();
+
+    // Call the "void operator ++ ()" function
+    ++count1;
+
+    count1.display();
+    return 0;
+}
+
+Output
+
+Count: 6
+Count: 7
+
+
+
+
+5. WAP to implement user defined function.
+
+
+// program to print a text
+
+#include <iostream>
+using namespace std;
+
+// display a number
+void displayNum(int n1, float n2) {
+    cout << "The int number is " << n1;
+    cout << "The double number is " << n2;
+}
+
+int main() {
+     
+     int num1 = 5;
+     double num2 = 5.5;
+
+    // calling the function
+    displayNum(num1, num2);
+
+    return 0;
+}
+
+Output:
+
+The int number is 5
+The double number is 5.5
+
+
+
+
+6. WAP to implement case control.
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+char n='C';
+switch(n)
+{
+  case 'A':
+  case 'B':
+  cout<<"A and B"<<endl;
+  break;
+  
+  case 'C':
+  case 'D':
+  cout<<"C and D"<<endl;
+  break;
+  
+  default:cout<<"Alphabet is greater than D"<<endl;
+  break;
+}
+return 0;
+}
+
+Output:
+
+C and D
+
+
+
+
+7. WAP to implement loop control.
+
+// C++ program to find the sum of first n natural numbers
+// positive integers such as 1,2,3,...n are known as natural numbers
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int num, sum;
+    sum = 0;
+
+    cout << "Enter a positive integer: ";
+    cin >> num;
+
+    for (int i = 1; i <= num; ++i) {
+        sum += i;
+    }
+
+    cout << "Sum = " << sum << endl;
+
+    return 0;
+}
+
+Output:
+
+Enter a positive integer: 10
+Sum = 55
+
+
+
+
+8. WAP to implement of destructor.
+
+#include<iostream>
+using namespace std;
+ 
+class Test
+{
+   public:
+        Test()
+       {
+              cout<<"\n Constructor executed";
+       }   
+ 
+       ~Test()
+          {
+              cout<<"\n Destructor executed";
+          }
+};
+main()
+{
+     Test t;
+       
+    return 0;
+}
+
+Output:
+ Constructor executed
+ Destructor executed
+ 
+ 
+ 
+ 9. WAP to implement class with constructor.
+ 
+ #include <iostream>
+using namespace std;
+ 
+class student {
+    int rno;
+    char name[10];
+    double fee;
+ 
+public:
+    student()
+    {
+        cout << "Enter the RollNo:";
+        cin >> rno;
+        cout << "Enter the Name:";
+        cin >> name;
+        cout << "Enter the Fee:";
+        cin >> fee;
+    }
+ 
+    void display()
+    {
+        cout << endl << rno << "\t" << name << "\t" << fee;
+    }
+};
+ 
+int main()
+{
+    student s; // constructor gets called automatically when
+               // we create the object of the class
+    s.display();
+ 
+    return 0;
+}
+Output:
+
+Enter the RollNo: 30
+Enter the Name: Ram
+Enter the Fee: 10,000
+
+30 Ram 10,000
+
+
+
+
+10. WAP to implement dynamic initialization of constructor.
+
+
+#include <iostream>
+using namespace std;
+ 
+class bank {
+    int principal;
+    int years;
+    float interest;
+    float returnvalue;
+ 
+public:
+    // Default constructor
+    bank() {}
+ 
+    // Parameterized constructor to
+    // calculate interest(float)
+    bank(int p, int y, float i)
+    {
+        principal = p;
+        years = y;
+        interest = i/100;
+        returnvalue = principal;
+        cout << "\nDeposited amount (float):";
+ 
+        // Finding the interest amount
+        for (int i = 0; i < years; i++) {
+            returnvalue = returnvalue
+                          * (1 + interest);
+        }
+    }
+ 
+    // Parameterized constructor to
+    // calculate interest(integer)
+    bank(int p, int y, int i)
+    {
+        principal = p;
+        years = y;
+        interest = float(i)/100;
+        returnvalue = principal;
+        cout << "\nDeposited amount"
+             << " (integer):";
+ 
+        // Find the interest amount
+        for (int i = 0; i < years; i++) {
+            returnvalue = returnvalue
+                          * (1 + interest);
+        }
+    }
+ 
+    // Display function
+    void display(void)
+    {
+        cout << returnvalue
+             << endl;
+    }
+};
+ 
+// Driver Code
+int main()
+{
+    // Variable initialization
+    int p = 200;
+    int y = 2;
+    int I = 5;
+    float i = 2.25;
+ 
+    // Object is created with
+    // float parameters
+    bank b1(p, y, i);
+ 
+    // Function Call with object
+    // of class
+    b1.display();
+ 
+    // Object is created with
+    // integer parameters
+    bank b2(p, y, I);
+ 
+    // Function Call with object
+    // of class
+    b2.display();
+ 
+    return 0;
+}
+Output:
+
+Deposited amount (float):209.101
+
+Deposited amount (integer):220.5
+
+
+
+
+
+
+11. WAP to implement copy constructor.
+
+#include <iostream>
+using namespace std;
+ 
+class Point {
+private:
+    int x, y;
+ 
+public:
+    Point(int x1, int y1)
+    {
+        x = x1;
+        y = y1;
+    }
+ 
+    // Copy constructor
+    Point(const Point& p1)
+    {
+        x = p1.x;
+        y = p1.y;
+    }
+ 
+    int getX() { return x; }
+    int getY() { return y; }
+};
+ 
+int main()
+{
+    Point p1(10, 15); // Normal constructor is called here
+    Point p2 = p1; // Copy constructor is called here
+ 
+    // Let us access values assigned by constructors
+    cout << "p1.x = " << p1.getX()
+         << ", p1.y = " << p1.getY();
+    cout << "\np2.x = " << p2.getX()
+         << ", p2.y = " << p2.getY();
+ 
+    return 0;
+}
+ 
+Output:
+
+p1.x = 10, p1.y = 15
+p2.x = 10, p2.y = 15
+
+
+
+12. WAP to implement function overloading.
+
+
+#include <iostream>
+using namespace std;
+ 
+ 
+void add(int a, int b)
+{
+  cout << "sum = " << (a + b);
+}
+ 
+void add(double a, double b)
+{
+    cout << endl << "sum = " << (a + b);
+}
+ 
+// Driver code
+int main()
+{
+    add(10, 2);
+    add(5.3, 6.2);
+ 
+    return 0;
+}
+
+Output:
+sum = 12
+sum = 11.5
+
+
+
+13. WAP to implement multiple inheritance.
+
+#include<iostream>
+using namespace std;
+ 
+class A
+{
+public:
+  A()  { cout << "A's constructor called" << endl; }
+};
+ 
+class B
+{
+public:
+  B()  { cout << "B's constructor called" << endl; }
+};
+ 
+class C: public B, public A  // Note the order
+{
+public:
+  C()  { cout << "C's constructor called" << endl; }
+};
+ 
+int main()
+{
+    C c;
+    return 0;
+}
+
+Output:
+
+B's constructor called
+A's constructor called
+C's constructor called
+
+
+
+
+14. WAP to implement class templates.
+
+
+// C++ program to demonstrate the use of class templates
+
+#include <iostream>
+using namespace std;
+
+// Class template
+template <class T>
+class Number {
+   private:
+    // Variable of type T
+    T num;
+
+   public:
+    Number(T n) : num(n) {}   // constructor
+
+    T getNum() {
+        return num;
+    }
+};
+
+int main() {
+
+    // create object with int type
+    Number<int> numberInt(7);
+
+    // create object with double type
+    Number<double> numberDouble(7.7);
+
+    cout << "int Number = " << numberInt.getNum() << endl;
+    cout << "double Number = " << numberDouble.getNum() << endl;
+
+    return 0;
+}
+
+Output:
+int Number = 7
+double Number = 7.7
+
+
+
+15. WAP to implement virtual base class. 
+
+#include <iostream>
+using namespace std;
+  
+class A {
+public:
+    int a;
+    A() // constructor
+    {
+        a = 10;
+    }
+};
+  
+class B : public virtual A {
+};
+  
+class C : public virtual A {
+};
+  
+class D : public B, public C {
+};
+  
+int main()
+{
+    D object; // object creation of class d
+    cout << "a = " << object.a << endl;
+  
+    return 0;
+}
+Output:
+a = 10
+
+
+
+16. WAP to implement pointer with arrays.
+
+
+// C++ Program to display address of each element of an array 
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float arr[3];
+
+    // declare pointer variable
+    float *ptr;
+    
+    cout << "Displaying address using arrays: " << endl;
+
+    // use for loop to print addresses of all array elements
+    for (int i = 0; i < 3; ++i)
+    {
+        cout << "&arr[" << i << "] = " << &arr[i] << endl;
+    }
+
+    // ptr = &arr[0]
+    ptr = arr;
+
+    cout<<"\nDisplaying address using pointers: "<< endl;
+
+    // use for loop to print addresses of all array elements
+    // using pointer notation
+    for (int i = 0; i < 3; ++i)
+    {
+        cout << "ptr + " << i << " = "<< ptr + i << endl;
+    }
+
+    return 0;
+}
+
+Output:
+
+Displaying address using arrays: 
+&arr[0] = 0x61fef0
+&arr[1] = 0x61fef4
+&arr[2] = 0x61fef8
+
+Displaying address using pointers: 
+ptr + 0 = 0x61fef0
+ptr + 1 = 0x61fef4
+ptr + 2 = 0x61fef8
+
+
+--------------------------------XXXXX------------------
